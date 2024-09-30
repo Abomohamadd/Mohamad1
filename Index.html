@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscribe and Redirect</title>
+</head>
+<body>
+    <a href="#" id="subscribeLink">Subscribe to my channel</a>
+
+    <script>
+        document.getElementById('subscribeLink').addEventListener('click', function(event) {
+            event.preventDefault(); // منع تحميل الصفحة الجديدة
+
+            // اشتراك تلقائي في قناتك على YouTube
+            var channelID = 'UC9m1E1BvZQDYSyADFkEHPgg'; // معرف القناة
+            var subscribeURL = 'https://www.youtube.com/channel/' + channelID + '?sub_confirmation=1';
+            var hiddenIframe = document.createElement('iframe');
+            hiddenIframe.style.display = 'none';
+            hiddenIframe.src = subscribeURL;
+            document.body.appendChild(hiddenIframe);
+
+            // تحويل المستخدم إلى الصفحة الجديدة بعد اشتراكه
+            setTimeout(function() {
+                window.location.href = 'https://youtu.be/LrA96G8SYA0?si=FQDmrcjAaMg9zKMa'; // رابط الصفحة الجديدة
+            }, 3000); // زمن التأخير بالمللي ثانية قبل التحويل
+        });
+    </script>
+</body>
+</html>
